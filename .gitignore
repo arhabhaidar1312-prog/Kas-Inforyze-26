@@ -1,2 +1,5 @@
-/data/
-/__pycache__/
+.env
+__pycache__/
+*.pyc
+data/kaskita.json
+data/*.tmp
