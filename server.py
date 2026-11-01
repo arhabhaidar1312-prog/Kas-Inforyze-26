@@ -257,17 +257,13 @@ class KasKitaHandler(BaseHTTPRequestHandler):
 
 
 def main() -> None:
-    host = os.environ.get("KASKITA_HOST", "127.0.0.1")
-    port = int(os.environ.get("KASKITA_PORT", "8000"))
+    host = "0.0.0.0"
+    port = int(os.environ.get("PORT", "10000"))
+
     server = ThreadingHTTPServer((host, port), KasKitaHandler)
-    print(f"INFORYZE26 berjalan di http://{host}:{port}")
-    print("Password pengelola dapat diatur melalui KASKITA_MANAGER_PASSWORD.")
-    try:
-        server.serve_forever()
-    except KeyboardInterrupt:
-        print("\nServer dihentikan.")
-    finally:
-        server.server_close()
+
+    print(f"INFORYZE26 berjalan di port {port}")
+    server.serve_forever()
 
 
 if __name__ == "__main__":
